@@ -21,6 +21,9 @@ def webServer(port=13331):
         
       headers = "HTTP/1.1 200 OK\r\n"
       headers += "Content-Type: text/html; charset=UTF-8\r\n\r\n"
+      headers += "Server: SimplePythonWebServer\r\n"  # Add Server header
+      headers += "Connection: close\r\n\r\n"
+      
       connectionSocket.send(headers.encode())
       connectionSocket.send(content)
 
