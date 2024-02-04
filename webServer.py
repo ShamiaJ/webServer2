@@ -14,7 +14,7 @@ def webServer(port=13331):
 
     try:
       message = connectionSocket.recv(1024).decode()  # Receive the HTTP request from the client
-      filename = message.split()[1]
+      filename = message.split()[1].partition("/")[2]
 
       with open(filename[1:], 'rb') as f: # Use 'rb' mode for reading binary files
         content = f.read()
